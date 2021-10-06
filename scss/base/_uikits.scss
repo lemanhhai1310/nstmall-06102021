@@ -1,0 +1,7 @@
+.uk{
+  &-container{
+    @include media-breakpoint-up('xl'){
+      max-width: 1400px;
+    }
+  }
+}

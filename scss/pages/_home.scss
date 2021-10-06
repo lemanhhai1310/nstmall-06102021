@@ -1,0 +1,185 @@
+.home{
+  &__margin20{
+    >*{
+      &:nth-child(n+2){
+        margin-top: 0px;
+        @include media-breakpoint-up('m'){
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+  &__banner{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    @include media-breakpoint-up('m'){
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    &__box1{
+      &__item{
+        border: dashed 1px #ebebeb;
+        border-left: none;
+        .uk-first-column> &{
+          border: dashed 1px #ebebeb;
+        }
+        width: 230px !important;
+        @include media-breakpoint-up('m'){
+          width: 100% !important;
+        }
+      }
+      &__img{
+
+      }
+      &__txt{
+        @extend .fz-14;
+        color: #292929;
+      }
+    }
+  }
+  &__content{
+    background: #f5f5f9;
+    padding: 10px 0;
+    @include media-breakpoint-up('m'){
+      padding: 20px 0;
+    }
+    &__title{
+      color: #292929;
+      @extend .fz-20;
+      font-family: $font-Roboto-Bold;
+      line-height: 1.5;
+      border-left: 4px solid #ff5b02;
+      padding-left: 9px;
+      letter-spacing: -0.5px;
+    }
+    &__card{
+      @include media-breakpoint-up('m'){
+        padding: 20px;
+      }
+    }
+    &__nav{
+      >li{
+        &:nth-child(n+2){
+          >a{
+            border-top: solid 1px #f5f5f5;
+          }
+        }
+        >a{
+          $x:14px;
+          padding: #{$x} 0 !important;
+          color: #292929;
+          @extend .fz-14;
+          &:hover{
+            color: #ff5b02;
+          }
+        }
+        &:first-child{
+          >a{
+            padding-top: 0 !important;
+          }
+        }
+      }
+    }
+    &__news{
+      &__title{
+        @extend .fz-14;
+        font-family: $font-Roboto-Bold;
+        line-height: (20/14);
+        a{
+          color: #292929;
+        }
+      }
+    }
+    &__product{
+      &__margin15{
+        >*{
+          margin: 0 !important;
+          &:nth-child(n+2){
+            margin-top: 15px !important;
+          }
+        }
+      }
+      &__item{
+        border: solid 1px #f5f5f5;
+        border-left: none;
+        .uk-grid-margin> &{
+          border-top: none !important;
+        }
+        .uk-first-column> &{
+          border: solid 1px #f5f5f5;
+        }
+      }
+      &__title{
+        @extend .fz-14;
+        margin-bottom: 5px;
+        a{
+          color: #292929;
+        }
+      }
+      &__desc{
+        @extend .fz-13;
+        color: #8d90a6;
+        line-height: (20/13);
+      }
+      &__price{
+        color: #ff5b02;
+        @extend .fz-14;
+        font-family: $font-Roboto-Bold;
+      }
+      &__priceold{
+        color: #8d90a6;
+        @extend .fz-12;
+      }
+      &__badge{
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+        background: #e62901;
+        text-align: center;
+        @extend .fz-12;
+        line-height: 40px;
+        color: #fff;
+      }
+      &__icon{
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        color: #ff5b02;
+        background: #fff;
+        margin-bottom: 0px;
+        border-radius: 5px;
+        position: relative;
+        font-size: 18px;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 1rem 0 rgb(0 0 0 / 10%);
+        &:hover{
+          background: #ff5b02;
+          color: #fff;
+        }
+      }
+    }
+    &__margin30{
+      &:nth-child(n+2){
+        margin-top: 10px;
+        @include media-breakpoint-up('m'){
+          margin-top: 30px;
+        }
+      }
+    }
+    &__margin20s{
+      >*{
+        margin: 0 !important;
+        &:nth-child(n+2){
+          margin-top: 10px !important;
+          @include media-breakpoint-up('m'){
+            margin-top: 20px !important;
+          }
+        }
+      }
+    }
+  }
+}
