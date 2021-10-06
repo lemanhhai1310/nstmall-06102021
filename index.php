@@ -224,10 +224,13 @@ $dataproduct = array(
         <div class="home__content__margin20s">
             <div>
                 <div class="uk-container uk-padding-remove">
-                    <div class="uk-background-default">
-                        <div class="uk-position-relative uk-visible-toggle" tabindex="-1" uk-slider>
+                    <div class="uk-background-default home__content__catalog__card">
+                        <div uk-slider="finite: true">
 
-                            <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l uk-grid-match" uk-grid>
+                            <div class="uk-position-relative">
+
+                                <div class="uk-slider-container">
+                                    <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l uk-grid-match uk-grid-collapse" uk-grid>
                                 <?php
                                 $data = array(
                                     array(
@@ -282,23 +285,52 @@ $dataproduct = array(
                                 foreach ($data as $k=>$v): ?>
                                 <?php if ($k%2==0): ?>
                                 <li>
-                                    <div class="uk-grid-collapse uk-grid-match" uk-grid>
-                                        <div>
-
+                                    <div class="uk-grid-collapse uk-grid-match uk-child-width-1-1 uk-flex-column" uk-grid>
+                                        <div class="uk-flex-1">
+                                            <div class="home__content__catalog__item uk-padding-small" uk-toggle="cls: uk-box-shadow-hover-small; mode: media; media: @m">
+                                                <div class="uk-flex-middle uk-grid-small" uk-grid>
+                                                    <div class="uk-width-auto">
+                                                        <div class="home__content__catalog__item__img">
+                                                            <img class="uk-responsive-width" src="<?= $v['src'] ?>" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="uk-width-expand">
+                                                        <h5 class="uk-h5 home__content__catalog__item__title"><a href=""><?= $v['txt'] ?></a></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <?php else: ?>
-                                        <div>
-
+                                        <div class="uk-flex-1">
+                                            <div class="home__content__catalog__item uk-padding-small" uk-toggle="cls: uk-box-shadow-hover-small; mode: media; media: @m">
+                                                <div class="uk-flex-middle uk-grid-small" uk-grid>
+                                                    <div class="uk-width-auto">
+                                                        <div class="home__content__catalog__item__img">
+                                                            <img class="uk-responsive-width" src="<?= $v['src'] ?>" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="uk-width-expand">
+                                                        <h5 class="uk-h5 home__content__catalog__item__title"><a href=""><?= $v['txt'] ?></a></h5>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
                                 <?php endif; ?>
                                 <?php endforeach; ?>
                             </ul>
+                                </div>
+                                <div class="uk-hidden@s mobile">
+                                    <a class="uk-position-center-left uk-position-small home__content__slidenav home__content__slidenav--left" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                                    <a class="uk-position-center-right uk-position-small home__content__slidenav home__content__slidenav--right" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                                </div>
 
-                            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-                            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-
+                                <div class="uk-visible@s pc">
+                                    <a class="uk-position-center-left-out uk-position-small uk-hidden-hover home__content__slidenav home__content__slidenav--left" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                                    <a class="uk-position-center-right-out uk-position-small uk-hidden-hover home__content__slidenav home__content__slidenav--right" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -384,49 +416,60 @@ $dataproduct = array(
             <div>
                 <div class="uk-container uk-padding-remove">
                     <div class="uk-background-default">
-                        <div class="uk-position-relative uk-visible-toggle" tabindex="-1" uk-slider>
+                        <div uk-slider="finite: true">
 
-                            <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-6@l uk-grid-match uk-grid-collapse" uk-grid>
-                                <?php foreach ($dataproduct as $k=>$v): ?>
-                                    <li>
-                                        <div class="uk-card uk-card-body uk-padding-small home__content__product__item uk-transition-toggle">
-                                            <div class="uk-cover-container">
-                                                <img src="<?= $v['src'] ?>" alt="" uk-cover>
-                                                <canvas width="500" height="500"></canvas>
-                                                <?php if ($v['sale']): ?>
-                                                    <span class="uk-badge uk-position-top-right uk-position-z-index home__content__product__badge">-<?= rand(3,49) ?>%</span>
-                                                <?php endif; ?>
-                                                <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-default"></div>
-                                                <div class="uk-position-bottom-center uk-position-small">
-                                                    <div class="uk-transition-slide-bottom-small">
-                                                        <div class="uk-child-width-auto uk-grid-5 uk-flex-center" uk-grid>
-                                                            <div>
-                                                                <a href="" class="uk-button-default uk-button uk-button-small home__content__product__icon"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
-                                                            </div>
-                                                            <div>
-                                                                <a href="" class="uk-button-default uk-button uk-button-small home__content__product__icon"><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                            <div class="uk-position-relative">
+
+                                <div class="uk-slider-container">
+
+                                    <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-6@l uk-grid-match uk-grid-collapse" uk-grid>
+                                        <?php foreach ($dataproduct as $k=>$v): ?>
+                                            <li>
+                                                <div class="uk-card uk-card-body uk-padding-small home__content__product__item uk-transition-toggle">
+                                                    <div class="uk-cover-container">
+                                                        <img src="<?= $v['src'] ?>" alt="" uk-cover>
+                                                        <canvas width="500" height="500"></canvas>
+                                                        <?php if ($v['sale']): ?>
+                                                            <span class="uk-badge uk-position-top-right uk-position-z-index home__content__product__badge">-<?= rand(3,49) ?>%</span>
+                                                        <?php endif; ?>
+                                                        <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-default"></div>
+                                                        <div class="uk-position-bottom-center uk-position-small">
+                                                            <div class="uk-transition-slide-bottom-small">
+                                                                <div class="uk-child-width-auto uk-grid-5 uk-flex-center" uk-grid>
+                                                                    <div>
+                                                                        <a href="" class="uk-button-default uk-button uk-button-small home__content__product__icon"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a href="" class="uk-button-default uk-button uk-button-small home__content__product__icon"><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div>
+                                                        <h4 class="uk-h4 home__content__product__title"><a href=""><?= $v['title'] ?></a></h4>
+                                                        <div class="uk-child-width-auto uk-grid-10 uk-flex-center uk-flex-middle" uk-grid>
+                                                            <div><span class="home__content__product__price"><?= $v['price'] ?></span></div>
+                                                            <?php if ($v['price-old'] != ''): ?>
+                                                                <div><del class="home__content__product__priceold"><?= $v['price-old'] ?></del></div>
+                                                            <?php endif; ?>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div>
-                                                <h4 class="uk-h4 home__content__product__title"><a href=""><?= $v['title'] ?></a></h4>
-                                                <div class="uk-child-width-auto uk-grid-10 uk-flex-center uk-flex-middle" uk-grid>
-                                                    <div><span class="home__content__product__price"><?= $v['price'] ?></span></div>
-                                                    <?php if ($v['price-old'] != ''): ?>
-                                                        <div><del class="home__content__product__priceold"><?= $v['price-old'] ?></del></div>
-                                                    <?php endif; ?>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                                <div class="uk-hidden@s mobile">
+                                    <a class="uk-position-center-left uk-position-small home__content__slidenav home__content__slidenav--left" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                                    <a class="uk-position-center-right uk-position-small home__content__slidenav home__content__slidenav--right" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                                </div>
 
-                            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-                            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-
+                                <div class="uk-visible@s pc">
+                                    <a class="uk-position-center-left-out uk-position-small uk-hidden-hover home__content__slidenav home__content__slidenav--left" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                                    <a class="uk-position-center-right-out uk-position-small uk-hidden-hover home__content__slidenav home__content__slidenav--right" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -520,51 +563,63 @@ $dataproduct = array(
             </div>
             <div>
                 <div class="uk-container uk-padding-remove">
-                    <div class="uk-background-default uk-padding-small">
-                        <div class="uk-position-relative uk-visible-toggle" tabindex="-1" uk-slider>
+                    <div class="uk-background-default uk-padding-small home__content__news__card">
+                        <div uk-slider="finite: true">
 
-                            <ul class="uk-slider-items uk-child-width-1-1 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l uk-grid-small uk-grid-30-m" uk-grid>
-                                <?php
-                                $data = array(
-                                    array(
-                                        'src' => 'https://file.hstatic.net/200000283825/article/6_ac411cd299fa445585780a516bc94088_large.jpg',
-                                        'title' => 'Máy lạnh Inverter là gì? Có nên mua không?',
-                                    ),
-                                    array(
-                                        'src' => 'https://file.hstatic.net/200000283825/article/4_5996b79e994542f3a4dc5dbafbc5f241_large.jpg',
-                                        'title' => '6 lý do bạn nên mua máy lạnh thường thay vì máy lạnh Inverter',
-                                    ),
-                                    array(
-                                        'src' => 'https://file.hstatic.net/200000283825/article/3_5f73bea9c89c44508d57338168b72cad_large.jpg',
-                                        'title' => 'Nên mua máy giặt hãng nào chất lượng, giá tốt?',
-                                    ),
-                                    array(
-                                        'src' => 'https://file.hstatic.net/200000283825/article/2_aa3a4dcc0c5c49839f3990c1ef6f725d_large.jpg',
-                                        'title' => 'Top 5 tủ lạnh Inverter bán chạy đáng tham khảo',
-                                    ),
-                                    array(
-                                        'src' => 'https://file.hstatic.net/200000283825/article/1_45dfbfeb6afc4f96b349253358de7e96_large.jpg',
-                                        'title' => 'So sánh quạt phun sương và quạt điều hòa',
-                                    ),
-                                    array(
-                                        'src' => 'https://theme.hstatic.net/200000283825/1000676391/14/800x600.png?v=27',
-                                        'title' => 'Bài viết mẫu',
-                                    ),
-                                );
-                                foreach ($data as $k=>$v): ?>
-                                <li>
-                                    <div class="uk-cover-container">
-                                        <img src="<?= $v['src'] ?>" alt="" uk-cover>
-                                        <canvas width="500" height="374"></canvas>
-                                    </div>
-                                    <h4 class="uk-h4 home__content__news__title uk-text-center uk-margin-small"><a href=""><?= $v['title'] ?></a></h4>
-                                </li>
-                                <?php endforeach; ?>
-                            </ul>
+                            <div class="uk-position-relative">
 
-                            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-                            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                                <div class="uk-slider-container">
 
+                                    <ul class="uk-slider-items uk-child-width-1-1 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l uk-grid-small uk-grid-30-m" uk-grid>
+                                        <?php
+                                        $data = array(
+                                            array(
+                                                'src' => 'https://file.hstatic.net/200000283825/article/6_ac411cd299fa445585780a516bc94088_large.jpg',
+                                                'title' => 'Máy lạnh Inverter là gì? Có nên mua không?',
+                                            ),
+                                            array(
+                                                'src' => 'https://file.hstatic.net/200000283825/article/4_5996b79e994542f3a4dc5dbafbc5f241_large.jpg',
+                                                'title' => '6 lý do bạn nên mua máy lạnh thường thay vì máy lạnh Inverter',
+                                            ),
+                                            array(
+                                                'src' => 'https://file.hstatic.net/200000283825/article/3_5f73bea9c89c44508d57338168b72cad_large.jpg',
+                                                'title' => 'Nên mua máy giặt hãng nào chất lượng, giá tốt?',
+                                            ),
+                                            array(
+                                                'src' => 'https://file.hstatic.net/200000283825/article/2_aa3a4dcc0c5c49839f3990c1ef6f725d_large.jpg',
+                                                'title' => 'Top 5 tủ lạnh Inverter bán chạy đáng tham khảo',
+                                            ),
+                                            array(
+                                                'src' => 'https://file.hstatic.net/200000283825/article/1_45dfbfeb6afc4f96b349253358de7e96_large.jpg',
+                                                'title' => 'So sánh quạt phun sương và quạt điều hòa',
+                                            ),
+                                            array(
+                                                'src' => 'https://theme.hstatic.net/200000283825/1000676391/14/800x600.png?v=27',
+                                                'title' => 'Bài viết mẫu',
+                                            ),
+                                        );
+                                        foreach ($data as $k=>$v): ?>
+                                        <li>
+                                            <div class="uk-cover-container">
+                                                <img src="<?= $v['src'] ?>" alt="" uk-cover>
+                                                <canvas width="500" height="374"></canvas>
+                                            </div>
+                                            <h4 class="uk-h4 home__content__news__title uk-text-center uk-margin-small"><a href=""><?= $v['title'] ?></a></h4>
+                                        </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+
+                                <div class="uk-hidden@s mobile">
+                                    <a class="uk-position-center-left uk-position-small home__content__slidenav home__content__slidenav--left" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                                    <a class="uk-position-center-right uk-position-small home__content__slidenav home__content__slidenav--right" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                                </div>
+
+                                <div class="uk-visible@s pc">
+                                    <a class="uk-position-center-left-out uk-position-small uk-hidden-hover home__content__slidenav home__content__slidenav--left" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                                    <a class="uk-position-center-right-out uk-position-small uk-hidden-hover home__content__slidenav home__content__slidenav--right" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

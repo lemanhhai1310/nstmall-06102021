@@ -40,8 +40,55 @@
   &__content{
     background: #f5f5f9;
     padding: 10px 0;
+    //padding-top: 0;
     @include media-breakpoint-up('m'){
       padding: 20px 0;
+    }
+    &__slidenav{
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      background: #fff;
+      border: none;
+      border-radius: 50%;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 15px 0 rgb(0 0 0 / 15%);
+      >*{
+        width: 10px;
+        color: #ff5b02;
+      }
+      $x:35px;
+      &--right{
+        .mobile &{
+          right: -10px;
+          .home__content__news__card &{
+            right: -24px;
+          }
+        }
+        .pc &{
+          left: calc(100% - #{$x});
+          .home__content__news__card &{
+            left: calc(100% - #{$x} + 15px);
+          }
+        }
+      }
+      &--left{
+        .mobile &{
+          left: -10px;
+          .home__content__news__card &{
+            left: -24px;
+          }
+        }
+        .pc &{
+          right: calc(100% - #{$x});
+          .home__content__news__card &{
+            right: calc(100% - #{$x} + 15px);
+          }
+        }
+      }
     }
     &__title{
       color: #292929;
@@ -80,13 +127,55 @@
         }
       }
     }
+    &__catalog{
+      &__card{
+        @include media-breakpoint-up('m'){
+          border: solid 1px #ebebeb;
+        }
+      }
+      &__item{
+        border: solid 1px #f5f5f5;
+        display: flex;
+        align-items: center;
+        border-left: none;
+        .uk-grid-margin> &{
+          border-top: none;
+          border-bottom: none;
+        }
+        .uk-first-column> &{
+          border-top: none;
+        }
+        &__img{
+          width: 50px;
+        }
+        &__title{
+          @extend .fz-13;
+          font-family: $font-Roboto-Medium;
+          line-height: (18/13);
+          a{
+            color: #292929;
+            text-decoration: none;
+            &:hover{
+              color: #ff5b02;
+            }
+          }
+        }
+      }
+    }
     &__news{
+      &__card{
+
+      }
       &__title{
         @extend .fz-14;
         font-family: $font-Roboto-Bold;
         line-height: (20/14);
         a{
           color: #292929;
+          text-decoration: none;
+          &:hover{
+            color: #ff5b02;
+          }
         }
       }
     }
@@ -102,6 +191,10 @@
       &__item{
         border: solid 1px #f5f5f5;
         border-left: none;
+        .uk-slider &{
+          border-top: none !important;
+          border-bottom: none !important;
+        }
         .uk-grid-margin> &{
           border-top: none !important;
         }
