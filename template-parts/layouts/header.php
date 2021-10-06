@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>BASE - <?= /** @var TYPE_NAME  */
+    <title>NSTMall - <?= /** @var TYPE_NAME  */
         (isset($data['title'])) ? $data['title'] : ''; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <!--CSS-->
@@ -18,6 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit-icons.min.js"></script>
     <script src="js/app.js"></script>
 </head>
-<body class="<?= ($is_home) ? 'isHome' : '' ?>">
+<body class="">
 <?php require "template-parts/commons/facebook_chat.php"; ?>
-<section id="app" class="uk-height-viewport uk-offcanvas-content uk-overflow-hidden uk-position-relative">
+<!--app-->
+<div id="app" class="uk-height-viewport uk-offcanvas-content uk-overflow-hidden uk-position-relative">
